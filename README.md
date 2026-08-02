@@ -21,3 +21,4 @@ Developed for educational and practical security research, this project focuses 
 - Authentication: djangorestframework-simplejwt (Cookie-based)
 - Security & Utilities: django-axes, argon2-cffi, python-dotenv
 - Database: SQLite (Development)
+pulling

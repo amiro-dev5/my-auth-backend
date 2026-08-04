@@ -147,7 +147,7 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.UserRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '10/minute',      
+        'anon': '30/minute',      
         'user': '100/minute',      
         'login_attempts': '5/minute',
     }
@@ -164,10 +164,18 @@ AUTHENTICATION_BACKENDS = [
     'axes.backends.AxesBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
-AXES_FAILURE_LIMIT = int(os.getenv('AXES_FAILURE_LIMIT', 5))          
-AXES_COOLOFF_TIME = float(os.getenv('AXES_COOLOFF_TIME', 0.25))       
-AXES_LOCKOUT_BY_USER_OR_FAILURES = True  
-AXES_RESET_ON_SUCCESS = True   
+# Axes Configuration
+AXES_FAILURE_LIMIT = int(os.getenv('AXES_FAILURE_LIMIT', 5))
+AXES_COOLOFF_TIME = float(os.getenv('AXES_COOLOFF_TIME', 0.25))  
+AXES_RESET_ON_SUCCESS = True
+
+
+AXES_PROXY_COUNT = 1
+AXES_CLIENT_IP_CALLABLE = "axes.helpers.get_client_ip"
+
+
+AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True
+AXES_LOCKOUT_TEMPLATE = None   
 
 # CORS Configurations for Front-end (React / Vite)
 CORS_ALLOW_CREDENTIALS = True  # HttpOnly Cookie

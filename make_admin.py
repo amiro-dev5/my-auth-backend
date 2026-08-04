@@ -1,5 +1,5 @@
 import os, django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'your_project_name.settings') # የፕሮጀክትህን ስም ተካ
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings') # የፕሮጀክትህን ስም ተካ
 django.setup()
 
 from django.contrib.auth import get_user_model

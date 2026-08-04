@@ -164,18 +164,19 @@ AUTHENTICATION_BACKENDS = [
     'axes.backends.AxesBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
-# Axes Configuration
+# Axes Configuration (django-axes v6+ kompatibel)
 AXES_FAILURE_LIMIT = int(os.getenv('AXES_FAILURE_LIMIT', 5))
-AXES_COOLOFF_TIME = float(os.getenv('AXES_COOLOFF_TIME', 0.25))  
+AXES_COOLOFF_TIME = float(os.getenv('AXES_COOLOFF_TIME', 0.25))  # 15 ደቂቃ
 AXES_RESET_ON_SUCCESS = True
 
+# በ IP እና Username/Email ጥምረት መቆለፍ (አዲሱ አጻጻፍ)
+AXES_LOCKOUT_PARAMETERS = [["username", "ip_address"]]
 
+# Reverse Proxy (Render) IP ለማወቅ አዲሱ አጻጻፍ
+AXES_IP_GETTER = "axes.helpers.get_client_ip"
 AXES_PROXY_COUNT = 1
-AXES_CLIENT_IP_CALLABLE = "axes.helpers.get_client_ip"
 
-
-AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True
-AXES_LOCKOUT_TEMPLATE = None   
+AXES_LOCKOUT_TEMPLATE = None 
 
 # CORS Configurations for Front-end (React / Vite)
 CORS_ALLOW_CREDENTIALS = True  # HttpOnly Cookie

@@ -169,10 +169,10 @@ AXES_FAILURE_LIMIT = int(os.getenv('AXES_FAILURE_LIMIT', 5))
 AXES_COOLOFF_TIME = float(os.getenv('AXES_COOLOFF_TIME', 0.25))  # 15 ደቂቃ
 AXES_RESET_ON_SUCCESS = True
 
-# በ IP እና Username/Email ጥምረት መቆለፍ (አዲሱ አጻጻፍ)
+
 AXES_LOCKOUT_PARAMETERS = [["username", "ip_address"]]
 
-# Reverse Proxy (Render) IP ለማወቅ አዲሱ አጻጻፍ
+
 AXES_IP_GETTER = "axes.helpers.get_client_ip"
 AXES_PROXY_COUNT = 1
 
